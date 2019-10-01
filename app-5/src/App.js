@@ -2,17 +2,21 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+//components
+import Image from "./components/Image";
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+  
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Image myImage={"https://cdn.vox-cdn.com/thumbor/ZWw7uzzvD48jp2gfH-aoPV6gwfk=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/10838073/pogchamp.png"} />
       </div>
     );
   }

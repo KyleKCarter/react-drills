@@ -3,16 +3,24 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      cookies: ['chocolate', 'chocolate chip', 'white chocolate chip', 'white chocolate macadamia nut', 'peanut butter', 'snickerdoodle', 'oatmeal rasin', 'sugar', 'frosted', 'chocolate chunk'],
+      userInput: ''
+    }
+  }
+
+  handleChange = (val) => {
+    this.setState({ userInput: val});
+  }
+  
   render() {
+    let cookiesToDisplay = this.state.cookies.filter((element, index) => {return element.includes(this.state.userInput);}).map((element, index) => {return <h2 key={index}>{element}</h2>})
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input className="inputField" onChange={ e => this.handleChange(e.target.value)}/>
+        {cookiesToDisplay}
       </div>
     );
   }
